@@ -1,0 +1,41 @@
+# Entornos virtuales y paquetes
+.venv/
+env/
+venv/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# Archivos de caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Descargas de usuario y temporales
+downloads/*
+!downloads/.gitkeep
+*.tmp
+*.part
+*.ytdl
+
+# Binarios locales
+bin/
+*.exe
+
+# Sistema Operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Entornos y credenciales
+.env
+.env.*
+terabox_cookie.txt

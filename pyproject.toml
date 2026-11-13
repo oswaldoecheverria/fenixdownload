@@ -1,0 +1,25 @@
+[project]
+name = "fenixdownload"
+version = "1.0.0"
+description = "⚡ FenixDownload: Acelerador de descargas multimedia multi-hilo estilo IDM para consola con evasión anti-bot. By Oswaldo Echeverría."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Oswaldo Echeverría", email = "82796724+oswaldoecheverria@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fake-useragent>=2.2.0",
+    "httpx>=0.28.1",
+    "humanize>=4.17.0",
+    "questionary>=2.1.1",
+    "rich>=15.0.0",
+    "yt-dlp>=2026.10.26",
+]
+
+[project.scripts]
+fenixdownload = "fenixdownload.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.22,<0.13.0"]
+build-backend = "uv_build"
