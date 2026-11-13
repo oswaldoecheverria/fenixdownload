@@ -119,29 +119,56 @@ FenixDownload utiliza rutas relativas dinámicas (`pathlib`) y APIs POSIX están
 
 ---
 
-## 📦 Instalación Rápida
+## 📦 Instalación Rápida y Auto-Configuración (Zero-Config)
 
-### Requisitos Previos
-1. **Python 3.12+** instalado.
-2. **FFmpeg** instalado en tu sistema:
-   - **Windows:** `winget install Gyan.FFmpeg.Essentials`
-   - **Linux:** `sudo apt install ffmpeg` o `sudo pacman -S ffmpeg`
-   - **macOS:** `brew install ffmpeg`
-3. *(Opcional recomendado)* **uv** para gestión ultrarrápida: `pip install uv`
+FenixDownload incluye un **Asistente Inteligente de Auto-Configuración (`bootstrap.py`)**. La primera vez que lo ejecutas en tu computadora, el sistema:
 
-### Clonar el Repositorio
+1. **Detecta tu Sistema Operativo:** (Windows, Linux o macOS) y tu versión de Python.
+2. **Diagnostica Requisitos:** Comprueba si `ffmpeg`, `ffprobe` o las librerías de aceleración están disponibles.
+3. **Solicita Confirmación Única:** Te explica qué componentes necesita y te pide confirmación interactiva.
+4. **Instalación y Calibración Automática:**
+   - Descarga e instala dependencias (`uv` / `pip`).
+   - Configura FFmpeg local o portable si tu sistema no lo tiene.
+   - Crea el archivo `.setup_done` para no volver a pedir confirmación nunca más.
+5. **Listo para Usar:** En ejecuciones posteriores, se inicia de inmediato en milisegundos sin comprobaciones innecesarias.
+
+---
+
+### Paso a Paso para Cualquier Sistema:
+
+#### 1. Clonar el Repositorio
 ```bash
 git clone https://github.com/oswaldoecheverria/fenixdownload.git
 cd fenixdownload
 ```
 
-### Instalar Dependencias
-Si usas `uv`:
-```bash
-uv sync
+#### 2. Ejecutar el Lanzador
+
+**En Windows:**
+```powershell
+.\fenixdownload.ps1
+# o desde CMD / doble clic en:
+fenixdownload.bat
 ```
-O con `pip` tradicional:
+
+**En Linux / macOS:**
 ```bash
+chmod +x fenixdownload.sh
+./fenixdownload.sh
+```
+
+*(También puedes ejecutar directamente `python bootstrap.py` con cualquier intérprete Python 3.10+)*
+
+---
+
+### Instalación Manual (Opcional para Desarrolladores)
+
+Si prefieres gestionar tu propio entorno virtual manualmente:
+```bash
+# Con uv (recomendado por velocidad):
+uv sync
+
+# O con pip tradicional:
 pip install -e .
 ```
 

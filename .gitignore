@@ -38,4 +38,5 @@ desktop.ini
 # Entornos y credenciales
 .env
 .env.*
+.setup_done
 terabox_cookie.txt
